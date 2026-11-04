@@ -1,25 +1,20 @@
 class OpensslAT11 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.1.1w.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1w.tar.gz"
-  mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1w.tar.gz"
-  mirror "https://www.openssl.org/source/old/1.1.1/openssl-1.1.1w.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/old/1.1.1/openssl-1.1.1w.tar.gz"
-  mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/old/1.1.1/openssl-1.1.1w.tar.gz"
-  sha256 "cf3098950cb4d853ad95c0841f1f9c6d3dc102dccfcacd521d93925208b76ac8"
+  url "https://github.com/kzalewski/openssl-1.1.1/archive/refs/tags/1.1.1zh.tar.gz"
+  sha256 "5872dd71b14d637ddf409386b7532baff555fe3d68a880f638ca102e6c2d3872"
   license "OpenSSL"
   version_scheme 1
 
-  pour_bottle? only_if: :default_prefix
+  #pour_bottle? only_if: :default_prefix
 
-  bottle do
-    root_url "https://ghcr.io/v2/rbenv/tap"
-    rebuild 1
-    sha256 arm64_sequoia: "b87448be45342d311fa745d7993b133a194108bffb6565b7b182d87f7dd800b3"
-    sha256 arm64_sonoma:  "4f6f6598cfb2da301661798649cfcf710c10af53c8e2c78d2596e632a9b67d68"
-    sha256 ventura:       "2f5ee1fcf6c9b9ac98d3088acaf397ac041e648a17e98b1ef052626975dfad2c"
-  end
+  #bottle do
+  #  root_url "https://ghcr.io/v2/rbenv/tap"
+  #  rebuild 1
+  #  sha256 arm64_sequoia: "b87448be45342d311fa745d7993b133a194108bffb6565b7b182d87f7dd800b3"
+  #  sha256 arm64_sonoma:  "4f6f6598cfb2da301661798649cfcf710c10af53c8e2c78d2596e632a9b67d68"
+  #  sha256 ventura:       "2f5ee1fcf6c9b9ac98d3088acaf397ac041e648a17e98b1ef052626975dfad2c"
+  #end
 
   keg_only :versioned_formula
 
