@@ -1,20 +1,23 @@
 class OpensslAT11 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://github.com/kzalewski/openssl-1.1.1/archive/refs/tags/1.1.1zh.tar.gz"
+  url "https://github.com/kzalewski/openssl-1.1.1/archive/refs/tags/#{version}.tar.gz"
+  version "1.1.1zh"
   sha256 "5872dd71b14d637ddf409386b7532baff555fe3d68a880f638ca102e6c2d3872"
   license "OpenSSL"
-  version_scheme 1
+  version_scheme 2
 
-  #pour_bottle? only_if: :default_prefix
+  pour_bottle? only_if: :default_prefix
 
-  #bottle do
-  #  root_url "https://ghcr.io/v2/rbenv/tap"
-  #  rebuild 1
-  #  sha256 arm64_sequoia: "b87448be45342d311fa745d7993b133a194108bffb6565b7b182d87f7dd800b3"
-  #  sha256 arm64_sonoma:  "4f6f6598cfb2da301661798649cfcf710c10af53c8e2c78d2596e632a9b67d68"
-  #  sha256 ventura:       "2f5ee1fcf6c9b9ac98d3088acaf397ac041e648a17e98b1ef052626975dfad2c"
-  #end
+  bottle do
+    root_url "https://ghcr.io/v2/eleanordoesntcode/tap"
+    rebuild 1
+    sha256 arm64_tahoe:   "6745e0bd3192476d827c7d05a866f7927a96032cd1a8e7a50b727af11b237b36"
+    sha256 arm64_sequoia: "b4ba923182549b131b2e9a4eb8349743499f3394b9ca02837e1a0522c74a2303"
+    sha256 arm64_sonoma:  "e874e2e2017ea8c8ba7a2eea296452728c1748c9f51d0938e022dde105bf4685"
+    sha256 tahoe:         "22070cd5f2aa44a893cf7681e56c6d2809e120190916d1afe1ffcd2f7bf6de11"
+    sha256 sequoia:       "db5b8b74e62cb8d3d4231bfd4e573c315da0b6bd43964e28873639b606893b0e"
+  end
 
   keg_only :versioned_formula
 
@@ -81,7 +84,7 @@ class OpensslAT11 < Formula
     # This ensures where Homebrew's Perl is needed the Cellar path isn't
     # hardcoded into OpenSSL's scripts, causing them to break every Perl update.
     # Whilst our env points to opt_bin, by default OpenSSL resolves the symlink.
-    ENV["PERL"] = Formula["perl"].opt_bin/"perl" if which("perl") == Formula["perl"].opt_bin/"perl"
+    ENV["PERL"] = formula_opt_bin("perl")/"perl" if which("perl") == formula_opt_bin("perl")/"perl"
 
     arch_args = []
     if OS.mac?
@@ -123,8 +126,7 @@ class OpensslAT11 < Formula
 
   test do
     # Make sure the necessary .cnf file exists, otherwise OpenSSL gets moody.
-    assert_predicate pkgetc/"openssl.cnf", :exist?,
-            "OpenSSL requires the .cnf file for some functionality"
+    assert_path_exists pkgetc/"openssl.cnf", "OpenSSL requires the .cnf file for some functionality"
 
     # Check OpenSSL itself functions as expected.
     (testpath/"testfile.txt").write("This is a test file")
