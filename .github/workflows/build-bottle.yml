@@ -112,6 +112,11 @@ jobs:
         with:
           merge-multiple: true
 
+     - name: Inspect downloaded bottles for debugging
+       run: |
+         pwd
+         find . -type f -print
+
       - name: Upload bottles
         run: brew pr-upload --root-url "$BOTTLE_ROOT_URL" --warn-on-upload-failure
         env:
