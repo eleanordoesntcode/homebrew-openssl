@@ -1,8 +1,8 @@
 class OpensslAT11 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://github.com/kzalewski/openssl-1.1.1/archive/refs/tags/#{version}.tar.gz"
   version "1.1.1zh"
+  url "https://github.com/kzalewski/openssl-1.1.1/archive/refs/tags/#{version}.tar.gz"
   sha256 "5872dd71b14d637ddf409386b7532baff555fe3d68a880f638ca102e6c2d3872"
   license "OpenSSL"
   version_scheme 2
@@ -12,11 +12,11 @@ class OpensslAT11 < Formula
   bottle do
     root_url "https://ghcr.io/v2/eleanordoesntcode/tap"
     rebuild 1
-    sha256 arm64_tahoe:   "6745e0bd3192476d827c7d05a866f7927a96032cd1a8e7a50b727af11b237b36"
-    sha256 arm64_sequoia: "b4ba923182549b131b2e9a4eb8349743499f3394b9ca02837e1a0522c74a2303"
-    sha256 arm64_sonoma:  "e874e2e2017ea8c8ba7a2eea296452728c1748c9f51d0938e022dde105bf4685"
-    sha256 tahoe:         "22070cd5f2aa44a893cf7681e56c6d2809e120190916d1afe1ffcd2f7bf6de11"
-    sha256 sequoia:       "db5b8b74e62cb8d3d4231bfd4e573c315da0b6bd43964e28873639b606893b0e"
+#    sha256 arm64_tahoe:   "6745e0bd3192476d827c7d05a866f7927a96032cd1a8e7a50b727af11b237b36"
+#    sha256 arm64_sequoia: "b4ba923182549b131b2e9a4eb8349743499f3394b9ca02837e1a0522c74a2303"
+#    sha256 arm64_sonoma:  "e874e2e2017ea8c8ba7a2eea296452728c1748c9f51d0938e022dde105bf4685"
+#    sha256 tahoe:         "22070cd5f2aa44a893cf7681e56c6d2809e120190916d1afe1ffcd2f7bf6de11"
+#    sha256 sequoia:       "db5b8b74e62cb8d3d4231bfd4e573c315da0b6bd43964e28873639b606893b0e"
   end
 
   keg_only :versioned_formula
