@@ -134,3 +134,13 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
           branch: ${{ env.BOTTLE_BRANCH }}
+
+      - name: Create pull request
+        working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr create \
+            --title "Update bottles" \
+            --head "$BOTTLE_BRANCH" \
+            --body "Automated bottle update."
