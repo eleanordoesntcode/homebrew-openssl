@@ -12,10 +12,10 @@ class OpensslAT11 < Formula
   bottle do
     root_url "https://ghcr.io/v2/eleanordoesntcode/openssl"
     rebuild 1
-    sha256 arm64_tahoe:   "05cfddca9cd8dda19cb33c3ed27fec8a122ac0d3ffad9841556d40732d37af39"
-    sha256 arm64_sequoia: "065321b701e583dacec6133c0df08f2ac1eb39331808e57ed8b68549dda13aba"
-    sha256 tahoe:         "609676a0c968ae303ea67dd91c3c85050e1e19091753adfbb8f1d83bac60d172"
-    sha256 sequoia:       "4b840dd35a9c056acb9c57c9ddda6837285adfc30cfba903fbce4163d6100238"
+    sha256 arm64_tahoe:   "96d3bf8dcf7711f8474800aa621101f726f74f81176335ad61f0124cde308ed5"
+    sha256 arm64_sequoia: "ee9ecbad6921d5584440b230631c5d8d3f560b1f4489a7b8edccfd14c7a45fba"
+    sha256 tahoe:         "963db3620e0200338b7eeccb177503f9ed6899782f47f6ea6f06e8ba06777878"
+    sha256 sequoia:       "e261d90677df4583401798cbe5cadd206ea89e617d089c107a050564fe9f9006"
   end
 
   keg_only :versioned_formula
